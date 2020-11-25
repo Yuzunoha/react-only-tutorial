@@ -5,14 +5,25 @@
 JSXの中で{}の中身はJSとして評価される。
 */
 function Tweet(props) {
-  return <div>{props.content}</div>;
+  return (
+    <div className='tweet'>
+      <div className='icon-container'>{props.icon}</div>
+      <div className='body-container'>
+        <div className='status-display'>
+          <span className='display-name'>{props.displayName}</span>
+          <span className='account-name'>@{props.accountName}</span>
+        </div>
+        <div className='content'>{props.content}</div>
+      </div>
+    </div>
+  );
 }
 
 function App() {
   return (
     <div>
-      <Tweet content='Hello' />
-      <Tweet content='React!' />
+      <Tweet icon='🌽' displayName='もろこし太郎' accountName='morokoshi' content='今日も1日もろこしがうまい' />
+      <Tweet icon='🦐' displayName='エビデンス' accountName='evidence' content='かにみそたべたい' />
     </div>
   );
 }
